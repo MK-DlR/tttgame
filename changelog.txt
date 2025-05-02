@@ -1,5 +1,7 @@
 5/2/25:
 
+- Create pseudocode
+- Fix wrong file upload
 - Resize placeholder gif
 - Replace placeholder gif with one with less rapid movement
 - Add project goals to README
