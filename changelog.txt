@@ -1,0 +1,6 @@
+5/2/25:
+
+- Add project goals to README
+- Create boilerplate and add placeholder gif, link css and js 
+- Upload placeholder gif
+- Create README, pseudocode, html, css, and js files
