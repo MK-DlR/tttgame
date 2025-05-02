@@ -12,4 +12,4 @@ against each other
 and player markers and score are displayed
 via DOM elements
 
-![thumbsup](https://github.com/MK-DlR/tttgame/blob/main/thumbsup.gif)
+![thumbsup](https://github.com/MK-DlR/tttgame/blob/main/thumbsupSM.gif)
