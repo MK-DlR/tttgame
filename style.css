@@ -1,1 +1,20 @@
 /* style.css */
+
+/* remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* body style */ 
+body {
+    background-color: lightblue; /* placeholder */
+    border: thick solid darkblue; /* placeholder to see where things are */
+}
+
+/* wrapper div style */
+.wrapper {
+    background-color: pink; /* placeholder */
+    text-align: center;
+    border: thick solid red; /* placeholder to see where things are */
+}
