@@ -1,2 +1,44 @@
 PROJECT
-1. 
+1. create objects
+    1a. create a Gameboard object
+        - to store the gameboard (as an array) inside of
+    Done
+    1b. players will also be stored in objects
+    Done
+    1c. controlling the flow of the game itself also requires an object
+    Wip
+    1d. have as little global code as possible
+        - put as much as possible within factories
+        - if only a single instance is needed (gameboard, displayController, etc)
+            - wrap the factory inside an IIFE
+    1e. all functionality should fit in the
+        - game object
+        - player objects
+        - gameboard object
+        - think carefully about where all logic should go
+        - resource: https://www.ayweb.dev/blog/building-a-house-from-the-inside-out
+
+2. focus on getting a working game in the console first
+    2a. make sure to include logic to check for when game is over
+        - check for all winning 3-in-a-rows and ties
+        - avoid worrying about 
+            - DOM and HTML/CSS until game is working
+            - user input until game is working
+
+3. once the game works in the console
+    3a. create an object
+        - that will handle the display/DOM logic
+    3b. write a function that renders contents of the gameboard array
+        - to the webpage
+        - can fill in with dummy x's and o's to see what's going on
+
+4. write the functions that allow players
+    4a. to mark specific spot/s on the board
+        - by interacting with appropriate DOM elements
+            - ie: click on a board square to place marker
+        - don't forget logic that keeps players from playing in taken spots
+
+5. clean up interface
+    5a. to allow players to put in their names
+    5b. include a button to start/restart game
+    5c. add a display element that shows the results on game end
