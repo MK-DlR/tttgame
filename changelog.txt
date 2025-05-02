@@ -1,5 +1,6 @@
 5/2/25:
 
+- Replace placeholder gif with one with less rapid movement
 - Add project goals to README
 - Create boilerplate and add placeholder gif, link css and js 
 - Upload placeholder gif
