@@ -1,5 +1,12 @@
 5/2/25:
 
+- Complete step 1a, 1b
+- Add giveScore function to increment playerScore as a test
+- Create factory to create players along with test player
+- Create factory within IIFE to create gameBoard
+- Update pseudocode wording on step 1c and fix step 1 sub numbering
+- Create basic container div and add temporary basic styling to see where things go
+- Set default margin and padding to 0
 - Create pseudocode
 - Fix wrong file upload
 - Resize placeholder gif
