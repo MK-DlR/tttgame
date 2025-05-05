@@ -42,3 +42,6 @@ PROJECT
     5a. to allow players to put in their names
     5b. include a button to start/restart game
     5c. add a display element that shows the results on game end
+
+resources:
+https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-guide-8faa070abab5
