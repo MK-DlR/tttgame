@@ -11,8 +11,18 @@ all functionality should fit in the various objects (game, player, gameboard)
 
 // factory within IIFE to create gameboard
 const createGame = (function () {
-  const gameBoard = {}; // create gameboard array
+  const rows = 3;
+  const columns = 3;
+  const gameBoard = []; // create gameboard array
   console.log("gameBoard goes here"); // testing
+
+  // loop to create 2D array
+  for (let i = 0; i < rows; i++) {
+    board[i] = [];
+    for (let j = 0; j < columns; j++) {
+      board[i].push(Cell());
+    }
+  }
   return gameBoard;
 })();
 

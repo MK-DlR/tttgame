@@ -1,3 +1,9 @@
+5/5/25:
+
+- Create nested for loop to take columns and rows and create 2D array
+- Create 3 column and 3 row constants
+- Change gameBoard from {} to []
+
 5/2/25:
 
 - Complete step 1a, 1b
