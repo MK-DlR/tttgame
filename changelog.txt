@@ -1,5 +1,9 @@
 5/5/25:
 
+- Create getValue function to retrieve current value of cell
+- Create Cell function to take player markers
+- Create printBoard function to print to console
+- Create dropMarker function to check if chosen cell is available
 - Create nested for loop to take columns and rows and create 2D array
 - Create 3 column and 3 row constants
 - Change gameBoard from {} to []
