@@ -23,16 +23,12 @@ const Gameboard = (function () {
     }
   }
 
-  board[0][0] = "X";
-  board[1][1] = "X";
-  board[2][2] = "X";
-
   console.table(board);
   // get entire gameboard
   const getBoard = () => board;
 
   // drop player marker
-  const dropMarker = (column, player) => {
+  const dropMarker = (row, column, player) => {
     // check available cells
     const availableCells = board
       .filter((row) => row[column].getValue() === 0)
@@ -104,37 +100,49 @@ function GameController(
     console.log(`${getActivePlayer().name}'s turn.`);
   };
 
-  const playRound = (Cell) => {
+  const playRound = (row, column, player) => {
     console.log(
       `Dropping ${getActivePlayer().name}'s marker into cell ${Cell}...`
     );
-    board.dropMarker(Cell, getActivePlayer().marker);
+    board.dropMarker(row, column, player, getActivePlayer().marker);
 
     // check for win conditions
     function checkWin(board) {
       // check rows
       for (let i = 0; i < board.length; i++) {
-        if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+        if (
+          board[i][0].getValue() === board[i][1].getValue() &&
+          board[i][1].getValue() === board[i][2].getValue()
+        ) {
           return board[i][0];
         }
       }
       // check columns
       for (let i = 0; i < board[0].length; i++) {
-        if (board[0][i] === board[1][i] && board[1][i] === board[2][i]) {
+        if (
+          board[0][i].getValue() === board[1][i].getValue() &&
+          board[1][i].getValue() === board[2][i].getValue()
+        ) {
           return board[0][i];
         }
       }
       // check diagonals
-      if (board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+      if (
+        board[0][0].getValue() === board[1][1].getValue() &&
+        board[1][1].getValue() === board[2][2].getValue()
+      ) {
         return board[0][0];
       }
-      if (board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
+      if (
+        board[0][2].getValue() === board[1][1].getValue() &&
+        board[1][1].getValue() === board[2][0].getValue()
+      ) {
         return board[0][2];
       }
       return null;
     }
 
-    console.log(checkWin(board));
+    console.log(checkWin(board)); // doesn't seem to be working
 
     // switch player turn
     switchPlayerTurn();
@@ -149,7 +157,7 @@ function GameController(
   };
 }
 
-const game = GameController;
+const game = GameController();
 
 /*
 // factory to create players

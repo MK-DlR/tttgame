@@ -1,5 +1,6 @@
 5/5/25:
 
+- Various fixes to and debugging of function logic
 - Add win condition check
 - Create gameController function to create players and handle switching turns
 - Create getValue function to retrieve current value of cell
