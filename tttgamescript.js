@@ -10,7 +10,7 @@ all functionality should fit in the various objects (game, player, gameboard)
 */
 
 // factory within IIFE to create gameboard
-const createGame = (function () {
+const Gameboard = (function () {
   const rows = 3;
   const columns = 3;
   const board = []; // create gameboard array
@@ -51,7 +51,7 @@ const createGame = (function () {
 squares on the board
 0: empty
 1: player 1's marker
-2: player 2's token
+2: player 2's marker
 */
 function Cell() {
   let value = 0;
@@ -69,6 +69,60 @@ function Cell() {
   };
 }
 
+// control the game turns and win conditions
+function GameController(
+  playerOneName = "Player One",
+  playerTwoName = "Player Two"
+) {
+  const board = Gameboard();
+
+  const players = [
+    {
+      name: playerOneName,
+      marker: 1,
+    },
+    {
+      name: playerTwoName,
+      marker: 2,
+    },
+  ];
+
+  let activePlayer = players[0];
+
+  const switchPlayerTurn = () => {
+    activePlayer = activePlayer === players[0] ? players[1] : players[0];
+  };
+  const getActivePlayer = () => activePlayer;
+
+  const printNewRound = () => {
+    board.printBoard();
+    console.log(`${getActivePlayer().name}'s turn.`);
+  };
+
+  const playRound = (Cell) => {
+    console.log(
+      `Dropping ${getActivePlayer().name}'s marker into cell ${Cell}...`
+    );
+    board.dropMarker(Cell, getActivePlayer().marker);
+
+    // win conditions here
+
+    // switch player turn
+    switchPlayerTurn();
+    printNewRound();
+  };
+  // initial play game message
+  printNewRound();
+
+  return {
+    playRound,
+    getActivePlayer,
+  };
+}
+
+const game = GameController;
+
+/*
 // factory to create players
 function player(name, marker) {
   const playerName = name;
@@ -89,5 +143,4 @@ console.table({
   playerMarker: adrien.playerMarker,
   playerScore: adrien.giveScore(),
 });
-
-// 1c. controlling the flow of the game itself also requires an object
+*/
