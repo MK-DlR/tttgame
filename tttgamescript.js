@@ -247,32 +247,6 @@ display and DOM
 below here 
 */
 
-/*
-// object to handle the display/DOM logic
-// single instance of displayController factory within IIFE
-const displayController = (function () {
-  const game = GameController;
-  const playerTurnDiv = document.querySelector(".turn");
-  const boardDiv = document.querySelector(".board");
-
-  // display player's turn
-  playerTurnDiv.textContent = `${activePlayer.name}'s turn...`;
-
-  // render board squares
-  board.forEach((row) => {
-    row.forEach((cell, index) => {
-      const cellButton = document.createElement("button");
-      cellButton.classList.add("cell");
-      cellButton.textContent = cell.getValue();
-      boardDiv.appendChild(cellButton);
-    });
-  });
-})();
-*/
-
-// function that will render contents of the gameboard array
-// code
-
 // functions to allow players to mark specific spots
 // code
 
