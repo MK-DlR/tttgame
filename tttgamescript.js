@@ -188,7 +188,7 @@ function GameController(
   };
 
   // reset game
-  function resetGame() {
+  function resetGameboard() {
     Gameboard.resetBoard();
     gameOver = false;
     activePlayer = players[0];
@@ -201,12 +201,8 @@ function GameController(
   return {
     playRound,
     getActivePlayer,
-    resetGame,
+    resetGameboard,
   };
-}
-
-function resetGame() {
-  game.resetGame();
 }
 
 const game = GameController();
@@ -230,3 +226,6 @@ function testGame() {
 function testMove() {
   game.playRound(1, 1);
 }
+
+// how to reset game:
+// game.resetGameboard();
