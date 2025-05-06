@@ -43,7 +43,7 @@ Done
             - ie: click on a board square to place marker
         - don't forget logic that keeps players from playing in taken spots
         Done
-    Wip
+    Wip (works in console, but not clickable yet)
 
 5. clean up interface
     5a. to allow players to put in their names
@@ -52,3 +52,6 @@ Done
 
 resources:
 https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-guide-8faa070abab5
+
+notes:
+remember to change player markers (1 + 2) to X and O (or emojis)
