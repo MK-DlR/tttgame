@@ -6,17 +6,20 @@ PROJECT
     1b. players will also be stored in objects
     Done
     1c. controlling the flow of the game itself also requires an object
-    Wip
+    Done
     1d. have as little global code as possible
         - put as much as possible within factories
         - if only a single instance is needed (gameboard, displayController, etc)
             - wrap the factory inside an IIFE
+    Done
     1e. all functionality should fit in the
         - game object
         - player objects
         - gameboard object
         - think carefully about where all logic should go
         - resource: https://www.ayweb.dev/blog/building-a-house-from-the-inside-out
+    Done
+Done
 
 2. focus on getting a working game in the console first
     2a. make sure to include logic to check for when game is over
@@ -24,6 +27,8 @@ PROJECT
         - avoid worrying about 
             - DOM and HTML/CSS until game is working
             - user input until game is working
+        Done
+Done
 
 3. once the game works in the console
     3a. create an object
