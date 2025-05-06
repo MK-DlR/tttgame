@@ -1,14 +1,5 @@
 /* tttgamescript.js */
 
-/*
-note: 
-have as little global code as possible
-put as much as possible within factories
-if only a single instance is needed (gameboard, displayController, etc)
-wrap the factory inside an IIFE
-all functionality should fit in the various objects (game, player, gameboard)
-*/
-
 // factory within IIFE to create gameboard
 const Gameboard = (function () {
   const rows = 3;
@@ -49,7 +40,7 @@ const Gameboard = (function () {
     console.log(boardWithCellValues);
   };
 
-  return { board, dropMarker, printBoard }; // interface for application to interact with the board
+  return { board, getBoard, dropMarker, printBoard }; // interface for application to interact with the board
 })();
 
 /*
@@ -81,6 +72,8 @@ function GameController(
 ) {
   const board = Gameboard;
 
+  let gameOver = false;
+
   const players = [
     {
       name: playerOneName,
@@ -105,50 +98,72 @@ function GameController(
   };
 
   const playRound = (row, column) => {
-    console.log(
-      `Dropping ${getActivePlayer().name}'s marker into cell ${
-        board[row][column]
-      }...`
+    // exit early if game is finished
+    if (gameOver) {
+      console.log("The game is over. Start a new game to play again.");
+      return;
+    }
+    // store result of dropMarker
+    const moveSuccessful = board.dropMarker(
+      row,
+      column,
+      getActivePlayer().marker
     );
-    board.dropMarker(row, column, getActivePlayer().marker);
+    console.log(
+      `Dropping ${
+        getActivePlayer().name
+      }'s marker into cell row ${row}, column ${column}...`
+    );
 
     // check for win conditions
     function checkWin(board) {
+      if (!moveSuccessful) return;
+
       // check rows
       for (let i = 0; i < board.length; i++) {
+        const val = board[i][0].getValue();
         if (
-          board[i][0].getValue() === board[i][1].getValue() &&
-          board[i][1].getValue() === board[i][2].getValue()
+          val !== 0 &&
+          val === board[i][1].getValue() &&
+          val === board[i][2].getValue()
         ) {
-          return board[i][0];
+          return val;
         }
       }
+
       // check columns
       for (let i = 0; i < board[0].length; i++) {
+        const val = board[0][i].getValue();
         if (
-          board[0][i].getValue() === board[1][i].getValue() &&
-          board[1][i].getValue() === board[2][i].getValue()
+          val !== 0 &&
+          val === board[1][i].getValue() &&
+          val === board[2][i].getValue()
         ) {
-          return board[0][i];
+          return val;
         }
       }
+
       // check diagonals
+      const center = board[1][1].getValue();
       if (
-        board[0][0].getValue() === board[1][1].getValue() &&
-        board[1][1].getValue() === board[2][2].getValue()
+        center !== 0 &&
+        ((center === board[0][0].getValue() &&
+          center === board[2][2].getValue()) ||
+          (center === board[0][2].getValue() &&
+            center === board[2][0].getValue()))
       ) {
-        return board[0][0];
+        return center;
       }
-      if (
-        board[0][2].getValue() === board[1][1].getValue() &&
-        board[1][1].getValue() === board[2][0].getValue()
-      ) {
-        return board[0][2];
-      }
+
       return null;
     }
 
-    console.log(checkWin(board)); // doesn't seem to be working
+    const winner = checkWin(board.getBoard());
+    if (winner) {
+      console.log(`${players[winner - 1].name} wins!`);
+      gameOver = true;
+      return;
+    }
 
     // switch player turn
     switchPlayerTurn();
@@ -187,3 +202,12 @@ console.table({
   playerScore: adrien.giveScore(),
 });
 */
+
+// test game function
+function testGame() {
+  game.playRound(0, 0);
+  game.playRound(1, 0);
+  game.playRound(0, 1);
+  game.playRound(1, 1);
+  game.playRound(0, 2); // Winning move
+}
