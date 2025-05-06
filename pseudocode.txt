@@ -33,9 +33,11 @@ Done
 3. once the game works in the console
     3a. create an object
         - that will handle the display/DOM logic
+    Wip
     3b. write a function that renders contents of the gameboard array
         - to the webpage
         - can fill in with dummy x's and o's to see what's going on
+    Wip
 
 4. write the functions that allow players
     4a. to mark specific spot/s on the board
