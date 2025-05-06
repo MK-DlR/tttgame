@@ -105,6 +105,35 @@ function GameController(
 
   let activePlayer = players[0];
 
+  // object to handle the display/DOM logic
+  // single instance of displayController factory within IIFE
+  const displayController = (function () {
+    const game = GameController;
+    const playerTurnDiv = document.querySelector(".turn");
+    const boardDiv = document.querySelector(".board");
+
+    // display player's turn
+    playerTurnDiv.textContent = `${activePlayer.name}'s turn...`;
+
+    // render board squares
+    board.getBoard().forEach((row) => {
+      row.forEach((cell, index) => {
+        const cellButton = document.createElement("button");
+        cellButton.classList.add("cell");
+        cellButton.textContent = cell.getValue();
+        boardDiv.appendChild(cellButton);
+      });
+    });
+  })();
+
+  // add event listener for the board
+  function clickHandlerBoard(e) {
+    const selectedCell = e.target.cellButton;
+    if (!selectedCell) return;
+
+    game.playRound(selectedCell);
+  }
+
   // switch players between turns
   const switchPlayerTurn = () => {
     activePlayer = activePlayer === players[0] ? players[1] : players[0];
@@ -213,12 +242,33 @@ function GameController(
 const game = GameController();
 
 /* 
+to do list of
 display and DOM
 below here 
 */
 
+/*
 // object to handle the display/DOM logic
-// code
+// single instance of displayController factory within IIFE
+const displayController = (function () {
+  const game = GameController;
+  const playerTurnDiv = document.querySelector(".turn");
+  const boardDiv = document.querySelector(".board");
+
+  // display player's turn
+  playerTurnDiv.textContent = `${activePlayer.name}'s turn...`;
+
+  // render board squares
+  board.forEach((row) => {
+    row.forEach((cell, index) => {
+      const cellButton = document.createElement("button");
+      cellButton.classList.add("cell");
+      cellButton.textContent = cell.getValue();
+      boardDiv.appendChild(cellButton);
+    });
+  });
+})();
+*/
 
 // function that will render contents of the gameboard array
 // code
