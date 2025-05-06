@@ -1,5 +1,9 @@
 5/6/25:
 
+- Start work on creating game display via DOM
+- Add basic css styling for turn and board divs
+- Create turn and board divs in html file
+- Change wrapper name to container
 - Create space for display/DOM code
 - Rename resetGame to resetGameboard
 - Move resetGame function location
