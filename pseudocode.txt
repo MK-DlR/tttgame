@@ -42,6 +42,8 @@ Done
         - by interacting with appropriate DOM elements
             - ie: click on a board square to place marker
         - don't forget logic that keeps players from playing in taken spots
+        Done
+    Wip
 
 5. clean up interface
     5a. to allow players to put in their names
