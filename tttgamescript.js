@@ -14,7 +14,6 @@ const Gameboard = (function () {
     }
   }
 
-  console.table(board);
   // get entire gameboard
   const getBoard = () => board;
 
@@ -40,7 +39,8 @@ const Gameboard = (function () {
     console.log(boardWithCellValues);
   };
 
-  return { board, getBoard, dropMarker, printBoard }; // interface for application to interact with the board
+  // interface for application to interact with the board
+  return { board, getBoard, dropMarker, printBoard };
 })();
 
 /*
@@ -67,13 +67,16 @@ function Cell() {
 
 // control the game turns and win conditions
 function GameController(
+  // set players
   playerOneName = "Player One",
   playerTwoName = "Player Two"
 ) {
   const board = Gameboard;
 
+  // allow gameplay
   let gameOver = false;
 
+  // player names and markers
   const players = [
     {
       name: playerOneName,
@@ -87,6 +90,7 @@ function GameController(
 
   let activePlayer = players[0];
 
+  // switch players between turns
   const switchPlayerTurn = () => {
     activePlayer = activePlayer === players[0] ? players[1] : players[0];
   };
@@ -158,9 +162,11 @@ function GameController(
       return null;
     }
 
+    // check for winner
     const winner = checkWin(board.getBoard());
     if (winner) {
       console.log(`${players[winner - 1].name} wins!`);
+      // end gameplay after win
       gameOver = true;
       return;
     }
@@ -180,29 +186,6 @@ function GameController(
 
 const game = GameController();
 
-/*
-// factory to create players
-function player(name, marker) {
-  const playerName = name;
-  const playerMarker = marker;
-  let playerScore = 0; // testing
-  const giveScore = () => playerScore++; // increment user score; testing
-
-  return { playerName, playerMarker, giveScore };
-}
-
-// creating test player
-const adrien = player("adrien", "X");
-adrien.giveScore();
-
-// logging test player info
-console.table({
-  playerName: adrien.playerName,
-  playerMarker: adrien.playerMarker,
-  playerScore: adrien.giveScore(),
-});
-*/
-
 // test game function
 function testGame() {
   game.playRound(0, 0);
@@ -210,4 +193,9 @@ function testGame() {
   game.playRound(0, 1);
   game.playRound(1, 1);
   game.playRound(0, 2); // Winning move
+}
+
+// test move function
+function testMove() {
+  game.playRound(1, 1);
 }
