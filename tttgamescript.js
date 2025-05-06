@@ -205,6 +205,10 @@ function GameController(
   };
 }
 
+function resetGame() {
+  game.resetGame();
+}
+
 const game = GameController();
 
 /* 
@@ -225,9 +229,4 @@ function testGame() {
 // test move function
 function testMove() {
   game.playRound(1, 1);
-}
-
-// test reset game function
-function resetGame() {
-  game.resetGame();
 }
