@@ -1,5 +1,7 @@
 5/6/25:
 
+- Add test move function
+- Step 4 wip
 - Add end game conditions to stop from playing game if finished
 - Complete step 1, 2
 - Add function to simulate played game
