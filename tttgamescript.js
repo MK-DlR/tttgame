@@ -17,6 +17,16 @@ const Gameboard = (function () {
   // get entire gameboard
   const getBoard = () => board;
 
+  // reset game function - to be triggered manually by pressing a button in the UI
+  const resetBoard = () => {
+    for (let i = 0; i < rows; i++) {
+      board[i] = [];
+      for (let j = 0; j < columns; j++) {
+        board[i].push(Cell());
+      }
+    }
+  };
+
   // drop player marker
   const dropMarker = (row, column, player) => {
     // check if the specific cell is empty (value = 0)
@@ -40,7 +50,7 @@ const Gameboard = (function () {
   };
 
   // interface for application to interact with the board
-  return { board, getBoard, dropMarker, printBoard };
+  return { board, getBoard, resetBoard, dropMarker, printBoard };
 })();
 
 /*
@@ -101,6 +111,7 @@ function GameController(
     console.log(`${getActivePlayer().name}'s turn.`);
   };
 
+  // handles each round and marker placing
   const playRound = (row, column) => {
     // exit early if game is finished
     if (gameOver) {
@@ -116,7 +127,7 @@ function GameController(
     console.log(
       `Dropping ${
         getActivePlayer().name
-      }'s marker into cell row ${row}, column ${column}...`
+      }'s marker into row ${row}, column ${column}...`
     );
 
     // check for win conditions
@@ -175,16 +186,32 @@ function GameController(
     switchPlayerTurn();
     printNewRound();
   };
+
+  // reset game
+  function resetGame() {
+    Gameboard.resetBoard();
+    gameOver = false;
+    activePlayer = players[0];
+    console.log("Game has been reset");
+  }
+
   // initial play game message
   printNewRound();
 
   return {
     playRound,
     getActivePlayer,
+    resetGame,
   };
 }
 
 const game = GameController();
+
+/* 
+codes and functions 
+below here 
+are for testing purposes
+*/
 
 // test game function
 function testGame() {
@@ -198,4 +225,9 @@ function testGame() {
 // test move function
 function testMove() {
   game.playRound(1, 1);
+}
+
+// test reset game function
+function resetGame() {
+  game.resetGame();
 }
