@@ -1,5 +1,10 @@
 /* tttgamescript.js */
 
+/*
+general gameplay code
+below here
+*/
+
 // factory within IIFE to create gameboard
 const Gameboard = (function () {
   const rows = 3;
@@ -56,8 +61,8 @@ const Gameboard = (function () {
 /*
 squares on the board
 0: empty
-1: player 1's marker
-2: player 2's marker
+1: player 1's marker - change to X/O/emoji
+2: player 2's marker - change to X/O/emoji
 */
 function Cell() {
   let value = 0;
@@ -78,8 +83,8 @@ function Cell() {
 // control the game turns and win conditions
 function GameController(
   // set players
-  playerOneName = "Player One",
-  playerTwoName = "Player Two"
+  playerOneName = "Player One", // change to let user input name
+  playerTwoName = "Player Two" // change to let user input name
 ) {
   const board = Gameboard;
 
@@ -90,11 +95,11 @@ function GameController(
   const players = [
     {
       name: playerOneName,
-      marker: 1,
+      marker: 1, // change to X/O/emoji
     },
     {
       name: playerTwoName,
-      marker: 2,
+      marker: 2, // change to X/O/emoji
     },
   ];
 
@@ -206,6 +211,29 @@ function GameController(
 }
 
 const game = GameController();
+
+/* 
+display and DOM
+below here 
+*/
+
+// object to handle the display/DOM logic
+// code
+
+// function that will render contents of the gameboard array
+// code
+
+// functions to allow players to mark specific spots
+// code
+
+// interface to let players input names
+// code
+
+// button to start/restart game
+// code
+
+// display element to show results on game end
+// code
 
 /* 
 codes and functions 
