@@ -29,12 +29,16 @@ const Gameboard = (function () {
 
   // drop player marker
   const dropMarker = (row, column, player) => {
-    // check available cells
-    const availableCells = board
-      .filter((row) => row[column].getValue() === 0)
-      .map((row) => row[column]);
-    if (!availableCells.length) return; // if no available cells, move is invalid
-    board[row][column].addMarker(player); // if cell is valid, drop player marker
+    // check if the specific cell is empty (value = 0)
+    if (board[row][column].getValue() !== 0) {
+      // cell is already taken
+      console.log("This cell is already taken. Try another one.");
+      return false;
+    }
+
+    // cell is available, add the player's marker
+    board[row][column].addMarker(player);
+    return true;
   };
 
   // print board to console
@@ -75,7 +79,7 @@ function GameController(
   playerOneName = "Player One",
   playerTwoName = "Player Two"
 ) {
-  const board = Gameboard();
+  const board = Gameboard;
 
   const players = [
     {
@@ -100,11 +104,13 @@ function GameController(
     console.log(`${getActivePlayer().name}'s turn.`);
   };
 
-  const playRound = (row, column, player) => {
+  const playRound = (row, column) => {
     console.log(
-      `Dropping ${getActivePlayer().name}'s marker into cell ${Cell}...`
+      `Dropping ${getActivePlayer().name}'s marker into cell ${
+        board[row][column]
+      }...`
     );
-    board.dropMarker(row, column, player, getActivePlayer().marker);
+    board.dropMarker(row, column, getActivePlayer().marker);
 
     // check for win conditions
     function checkWin(board) {

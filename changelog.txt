@@ -1,3 +1,8 @@
+5/6/25:
+
+- Fix dropMarker function logic to correctly check row and column availability
+- Remove unnecessary filter logic in dropMarker function
+
 5/5/25:
 
 - Various fixes to and debugging of function logic
