@@ -54,6 +54,7 @@ Done
     5c. add a display element that shows the results on game end
 
 resources:
+https://www.ayweb.dev/blog/building-a-house-from-the-inside-out
 https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-guide-8faa070abab5
 
 notes:
