@@ -71,3 +71,8 @@ remember to add notification of winner (along w step 5) - Done
 remember to add game over when all available cells are taken - Done
 add win tracker (ie: Player 1: 5 wins | Player 2: 3 wins) - Done
 move winner notification to a pop up alert - Done
+
+IMPORTANT
+if player selects an already taken cell
+it still counts that as their move and switches to the other player
+fix this!!
