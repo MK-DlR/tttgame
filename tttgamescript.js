@@ -194,8 +194,8 @@ function GameController(
     if (winner) {
       console.log(`${players[winner - 1].name} wins!`);
       // end gameplay after win
-      const finishedGame = document.querySelector(".finished");
-      finishedGame.textContent = `${players[winner - 1].name} wins!`;
+      const winGame = document.querySelector(".winner");
+      winGame.textContent = `${players[winner - 1].name} wins!`;
       gameOver = true;
       return;
     }
