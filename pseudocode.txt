@@ -27,25 +27,26 @@ Done
         - avoid worrying about 
             - DOM and HTML/CSS until game is working
             - user input until game is working
-        Done
+    Done
 Done
 
 3. once the game works in the console
     3a. create an object
         - that will handle the display/DOM logic
-    Wip
+    Done
     3b. write a function that renders contents of the gameboard array
         - to the webpage
         - can fill in with dummy x's and o's to see what's going on
-    Wip
+    Done
+Done
 
 4. write the functions that allow players
     4a. to mark specific spot/s on the board
         - by interacting with appropriate DOM elements
             - ie: click on a board square to place marker
         - don't forget logic that keeps players from playing in taken spots
-        Done
-    Wip (works in console, but not clickable yet)
+    Done
+Done
 
 5. clean up interface
     5a. to allow players to put in their names
@@ -59,8 +60,6 @@ https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-
 
 notes:
 remember to change player markers (1 + 2) to X and O (or emojis)
-change console.logs to textContent:
-    - The game is over. Start a new game to play again.
-    Done
-    - This cell is already taken. Try another one.
-    Done
+remember to add game over when all available cells are taken 
+    - currently it seems to continue normally in the console, instead of giving game over text
+    - this only happens when the game is a TIE - things work if there is a winner
