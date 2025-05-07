@@ -37,6 +37,8 @@ const Gameboard = (function () {
 
     // cell is available, add player marker
     board[row][column].addMarker(player);
+    const gameAlert = document.querySelector(".alerts");
+    gameAlert.textContent = "";
     return true;
   };
 
@@ -271,24 +273,6 @@ const displayController = (function () {
 })();
 
 const game = GameController();
-
-/* 
-to do list of
-display and DOM
-below here 
-*/
-
-// functions to allow players to mark specific spots
-// code
-
-// interface to let players input names
-// code
-
-// button to start/restart game
-// code
-
-// display element to show results on game end
-// code
 
 /* 
 codes and functions 
