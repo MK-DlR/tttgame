@@ -36,12 +36,16 @@ const Gameboard = (function () {
   const dropMarker = (row, column, player) => {
     // check if the specific cell is empty (value = 0)
     if (board[row][column].getValue() !== 0) {
-      // cell is already taken
+      // if cell is already taken
+      const gameAlert = document.querySelector(".alerts");
+
+      // display cell is already taken
+      gameAlert.textContent = "This cell is already taken. Try another one.";
       console.log("This cell is already taken. Try another one.");
       return false;
     }
 
-    // cell is available, add the player's marker
+    // cell is available, add player marker
     board[row][column].addMarker(player);
     return true;
   };
@@ -149,6 +153,11 @@ function GameController(
   const playRound = (row, column) => {
     // exit early if game is finished
     if (gameOver) {
+      const finishedGame = document.querySelector(".finished");
+
+      // display game is over
+      finishedGame.textContent =
+        "The game is over. Start a new game to play again.";
       console.log("The game is over. Start a new game to play again.");
       return;
     }
