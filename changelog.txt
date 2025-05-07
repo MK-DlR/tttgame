@@ -1,5 +1,7 @@
 5/7/25:
 
+- Increment winner's score by 1 when game ends
+- Add tracker div to show player wins and losses
 - Add padding to html elements for better readability 
 - Add pseudocode notes of potential ideas
 - Change order of elements in html file for better flow

@@ -102,12 +102,19 @@ function GameController(
     {
       name: playerOneName,
       marker: 1, // change to X/O/emoji
+      score: 0,
     },
     {
       name: playerTwoName,
       marker: 2, // change to X/O/emoji
+      score: 0,
     },
   ];
+
+  // player scores
+  const trackWins = document.querySelector(".tracker");
+  trackWins.innerHTML = `<h3>Player Scores</h3><br>
+  <b>Player 1:</b> ${players[0].score} | <b>Player 2:</b> ${players[1].score}`;
 
   let activePlayer = players[0];
 
@@ -192,10 +199,16 @@ function GameController(
     // check for winner
     const winner = checkWin(board.getBoard());
     if (winner) {
+      // winner notification
       console.log(`${players[winner - 1].name} wins!`);
-      // end gameplay after win
       const winGame = document.querySelector(".winner");
-      winGame.textContent = `${players[winner - 1].name} wins!`;
+      winGame.textContent = `🎉 ${players[winner - 1].name} wins! 🎉`;
+      // increment winner's score
+      players[winner - 1].score++;
+      trackWins.innerHTML = `<h3>Player Scores</h3><br>
+      <b>Player 1:</b> ${players[0].score} | <b>Player 2:</b> ${players[1].score}`;
+      console.table(players);
+      // end gameplay after win
       gameOver = true;
       return;
     }

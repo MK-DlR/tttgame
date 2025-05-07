@@ -20,6 +20,7 @@ body {
     display: grid;
 }
 
+/* turn and winner announcement padding */
 h1,
 h2 {
     padding: 10px;
@@ -39,7 +40,12 @@ h2 {
     background-color: purple; /* placeholder */
 }
 
+.tracker {
+    padding-top: 10px;
+}
+
+/* game alert padding */ 
 .alerts,
 .finished {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
