@@ -194,10 +194,22 @@ function GameController(
     if (winner) {
       console.log(`${players[winner - 1].name} wins!`);
       // end gameplay after win
+      const finishedGame = document.querySelector(".finished");
+      finishedGame.textContent = `${players[winner - 1].name} wins!`;
       gameOver = true;
       return;
     }
 
+    // check for full board
+    const isBoardFull = board
+      .getBoard()
+      .every((row) => row.every((cell) => cell.getValue() !== 0));
+
+    if (isBoardFull) {
+      console.log("Board is full.");
+      gameOver = true;
+      return;
+    }
     // switch player turn
     switchPlayerTurn();
     printNewRound();
