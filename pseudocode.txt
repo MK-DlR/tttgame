@@ -50,6 +50,8 @@ Done
 
 5. clean up interface
     5a. to allow players to put in their names
+        - if "submit" is pressed with no username put in
+        - just use player 1/player 2
     Wip
     5b. include a button to start/restart game
     Done
