@@ -40,6 +40,31 @@ h2 {
     background-color: purple; /* placeholder */
 }
 
+/* new game button */
+.button {
+    background-color: green; /*placeholder */
+    border: none;
+    border-radius: 8px;
+    width: 170px;
+    color: white; /*placeholder */
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white; /*placeholder */
+    color: green; /*placeholder */
+    border: 2px solid green; /*placeholder */
+}
+
+/* win tracker */
 .tracker {
     padding-top: 10px;
 }
