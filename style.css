@@ -20,6 +20,11 @@ body {
     display: grid;
 }
 
+h1,
+h2 {
+    padding: 10px;
+}
+
 /* board style */
 .board {
     display: grid;
@@ -32,4 +37,9 @@ body {
     gap: 2px;
     padding: 2px;
     background-color: purple; /* placeholder */
+}
+
+.alerts,
+.finished {
+    padding-bottom: 20px;
 }
