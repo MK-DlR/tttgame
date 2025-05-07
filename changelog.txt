@@ -1,5 +1,7 @@
 5/7/25:
 
+- Adjust winner notification
+- Create winner h1 class
 - Step 5c complete
 - Add text notification of winner
 - Add check for if game board is full in event of a tie
