@@ -8,12 +8,36 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="turn"></h2>
-        <div class="board"></div>
-        <button style="text-align: center;" class="button">New Game</button>
+        <div class="game-layout">
+            <!-- left side - player 1 -->
+            <div class="player-section" id="player1-section">
+                <form id="p1">
+                    <label for="player1" style="font-weight: bold">Player 1:</label><br>
+                    <input type="text" id="player1" name="player1"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            
+            <!-- middle - game board and controls -->
+            <div class="game-section">
+                <h2 class="turn"></h2>
+                <div class="board"></div>
+                <button class="button">New Game</button>
+                <div class="alerts"></div>
+                <div class="finished"></div>
+            </div>
+            
+            <!-- right side - player 2 -->
+            <div class="player-section" id="player2-section">
+                <form id="p2">
+                    <label for="player2" style="font-weight: bold">Player 2:</label><br>
+                    <input type="text" id="player2" name="player2"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        
         <div class="tracker"></div>
-        <div class="alerts"></div>
-        <div class="finished"></div>
     </div>
     <script src="tttgamescript.js"></script>
 </body>
