@@ -72,7 +72,7 @@ const Gameboard = (function () {
     };
   }
 
-  // reset game function - to be triggered manually by pressing a button in the UI
+  // reset game function
   const resetBoard = () => {
     for (let i = 0; i < rows; i++) {
       board[i] = [];
@@ -234,6 +234,12 @@ function GameController(
     gameOver = false;
     activePlayer = players[0];
     console.log("Game has been reset");
+    const gameAlert = document.querySelector(".alerts");
+    const finishedGame = document.querySelector(".finished");
+
+    // clear content
+    gameAlert.textContent = "";
+    finishedGame.textContent = "";
 
     displayController.updateDisplay();
   }
