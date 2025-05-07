@@ -254,6 +254,13 @@ const displayController = (function () {
   const playerTurnDiv = document.querySelector(".turn");
   const boardDiv = document.querySelector(".board");
 
+  // Helper function to convert marker to emoji
+  const markerToEmoji = (value) => {
+    if (value === 1) return "✖️";
+    if (value === 2) return "⭕";
+    return "";
+  };
+
   const updateDisplay = () => {
     // clear the board
     boardDiv.textContent = "";
@@ -270,7 +277,7 @@ const displayController = (function () {
       row.forEach((cell, columnIndex) => {
         const cellButton = document.createElement("button");
         cellButton.classList.add("cell");
-        cellButton.textContent = cell.getValue();
+        cellButton.textContent = markerToEmoji(cell.getValue()); // use helper here
         cellButton.dataset.row = rowIndex;
         cellButton.dataset.column = columnIndex;
         boardDiv.appendChild(cellButton);
