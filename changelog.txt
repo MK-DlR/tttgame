@@ -1,5 +1,6 @@
 5/7/25:
 
+- Adjust displayController 
 - Move Cell inside of Gameboard
 - Make alerts and finished display when cell is taken and/or game is finished
 - Add alerts and finished divs in html

@@ -22,16 +22,6 @@ const Gameboard = (function () {
   // get entire gameboard
   const getBoard = () => board;
 
-  // reset game function - to be triggered manually by pressing a button in the UI
-  const resetBoard = () => {
-    for (let i = 0; i < rows; i++) {
-      board[i] = [];
-      for (let j = 0; j < columns; j++) {
-        board[i].push(Cell());
-      }
-    }
-  };
-
   // drop player marker
   const dropMarker = (row, column, player) => {
     // check if the specific cell is empty (value = 0)
@@ -80,6 +70,16 @@ const Gameboard = (function () {
     };
   }
 
+  // reset game function - to be triggered manually by pressing a button in the UI
+  const resetBoard = () => {
+    for (let i = 0; i < rows; i++) {
+      board[i] = [];
+      for (let j = 0; j < columns; j++) {
+        board[i].push(Cell());
+      }
+    }
+  };
+
   // interface for application to interact with the board
   return { board, getBoard, resetBoard, dropMarker, printBoard, Cell };
 })();
@@ -108,35 +108,6 @@ function GameController(
   ];
 
   let activePlayer = players[0];
-
-  // object to handle the display/DOM logic
-  // single instance of displayController factory within IIFE
-  const displayController = (function () {
-    const game = GameController;
-    const playerTurnDiv = document.querySelector(".turn");
-    const boardDiv = document.querySelector(".board");
-
-    // display player's turn
-    playerTurnDiv.textContent = `${activePlayer.name}'s turn...`;
-
-    // render board squares
-    board.getBoard().forEach((row) => {
-      row.forEach((cell, index) => {
-        const cellButton = document.createElement("button");
-        cellButton.classList.add("cell");
-        cellButton.textContent = cell.getValue();
-        boardDiv.appendChild(cellButton);
-      });
-    });
-  })();
-
-  // add event listener for the board
-  function clickHandlerBoard(e) {
-    const selectedCell = e.target.cellButton;
-    if (!selectedCell) return;
-
-    game.playRound(selectedCell);
-  }
 
   // switch players between turns
   const switchPlayerTurn = () => {
@@ -244,9 +215,60 @@ function GameController(
   return {
     playRound,
     getActivePlayer,
+    getBoard: board.getBoard,
     resetGameboard,
   };
 }
+
+// object to handle the display/DOM logic
+// single instance of displayController factory within IIFE
+const displayController = (function () {
+  const game = GameController();
+  const playerTurnDiv = document.querySelector(".turn");
+  const boardDiv = document.querySelector(".board");
+
+  const updateDisplay = () => {
+    // clear the board
+    boardDiv.textContent = "";
+
+    // get newest version of board and player turn
+    const board = game.getBoard();
+    const activePlayer = game.getActivePlayer();
+
+    // display player's turn
+    playerTurnDiv.textContent = `${activePlayer.name}'s turn...`;
+
+    // render board squares
+    board.forEach((row, rowIndex) => {
+      row.forEach((cell, columnIndex) => {
+        const cellButton = document.createElement("button");
+        cellButton.classList.add("cell");
+        cellButton.textContent = cell.getValue();
+        cellButton.dataset.row = rowIndex;
+        cellButton.dataset.column = columnIndex;
+        boardDiv.appendChild(cellButton);
+      });
+    });
+  };
+
+  // add event listener for the board
+  function clickHandlerBoard(e) {
+    const target = e.target;
+    if (!target.classList.contains("cell")) return;
+
+    const row = parseInt(target.dataset.row);
+    const column = parseInt(target.dataset.column);
+    game.playRound(row, column);
+    updateDisplay();
+  }
+
+  boardDiv.addEventListener("click", clickHandlerBoard);
+
+  // initial render
+  updateDisplay();
+
+  return {}; // if you need to expose anything
+})();
 
 const game = GameController();
 
