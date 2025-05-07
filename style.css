@@ -17,13 +17,43 @@ body {
     background-color: pink; /* placeholder */
     text-align: center;
     border: thick solid red; /* placeholder to see where things are */
-    display: grid;
 }
 
-/* turn and winner announcement padding */
-h1,
+/* game layout style */
+.game-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* player username inputs */
+.player-section {
+    width: 20%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+}
+
+#player1,
+#player2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* game section with alert text */
+.game-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* turn padding */
 h2 {
-    padding: 10px;
+    padding-bottom: 10px;
 }
 
 /* board style */
@@ -64,13 +94,14 @@ h2 {
     border: 2px solid green; /*placeholder */
 }
 
-/* win tracker */
-.tracker {
-    padding-top: 10px;
-}
-
 /* game alert padding */ 
 .alerts,
 .finished {
+    padding-bottom: 10px;
+}
+
+/* score tracker */
+.tracker {
+    margin-top: -20px;
     padding-bottom: 10px;
 }
