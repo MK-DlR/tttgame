@@ -58,31 +58,31 @@ const Gameboard = (function () {
     console.log(boardWithCellValues);
   };
 
+  /*
+  squares on the board
+  0: empty
+  1: player 1's marker - change to X/O/emoji
+  2: player 2's marker - change to X/O/emoji
+  */
+  function Cell() {
+    let value = 0;
+    // accept player marker to change value
+    const addMarker = (player) => {
+      value = player;
+    };
+
+    // retrieve current value of cell
+    const getValue = () => value;
+
+    return {
+      addMarker,
+      getValue,
+    };
+  }
+
   // interface for application to interact with the board
-  return { board, getBoard, resetBoard, dropMarker, printBoard };
+  return { board, getBoard, resetBoard, dropMarker, printBoard, Cell };
 })();
-
-/*
-squares on the board
-0: empty
-1: player 1's marker - change to X/O/emoji
-2: player 2's marker - change to X/O/emoji
-*/
-function Cell() {
-  let value = 0;
-  // accept player marker to change value
-  const addMarker = (player) => {
-    value = player;
-  };
-
-  // retrieve current value of cell
-  const getValue = () => value;
-
-  return {
-    addMarker,
-    getValue,
-  };
-}
 
 // control the game turns and win conditions
 function GameController(
