@@ -114,7 +114,7 @@ function GameController(
   // player scores
   const trackWins = document.querySelector(".tracker");
   trackWins.innerHTML = `<h3>Player Scores</h3><br>
-  <b>${players[0].name}:</b> ${players[0].score} | <b>${players[1].name}</b> ${players[1].score}`;
+  <b>${players[0].name}:</b> ${players[0].score} | <b>${players[1].name}:</b> ${players[1].score}`;
 
   let activePlayer = players[0];
 
@@ -206,7 +206,7 @@ function GameController(
       // alert winner
       alert(`🎉 ${players[winner - 1].name} wins! 🎉`);
       trackWins.innerHTML = `<h3>Player Scores</h3><br>
-      <b>${players[0].name}:</b> ${players[0].score} | <b>${players[1].name}</b> ${players[1].score}`;
+      <b>${players[0].name}:</b> ${players[0].score} | <b>${players[1].name}:</b> ${players[1].score}`;
       console.table(players);
       // end gameplay after win
       gameOver = true;
@@ -234,7 +234,12 @@ function GameController(
     gameOver = false;
     activePlayer = players[0];
     console.log("Game has been reset");
+
+    displayController.updateDisplay();
   }
+
+  const newGame = document.querySelector(".button");
+  newGame.addEventListener("click", resetGameboard);
 
   // initial play game message
   printNewRound();
@@ -301,7 +306,9 @@ const displayController = (function () {
   // initial render
   updateDisplay();
 
-  return {}; // if you need to expose anything
+  return {
+    updateDisplay, // Expose updateDisplay so it can be called after resetting
+  };
 })();
 
 const game = GameController();
