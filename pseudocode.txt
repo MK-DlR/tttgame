@@ -53,6 +53,8 @@ Done
     5b. include a button to start/restart game
     Wip
     5c. add a display element that shows the results on game end
+    Done
+Wip
 
 resources:
 https://www.ayweb.dev/blog/building-a-house-from-the-inside-out
@@ -60,6 +62,4 @@ https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-
 
 notes:
 remember to change player markers (1 + 2) to X and O (or emojis)
-remember to add game over when all available cells are taken 
-    - currently it seems to continue normally in the console, instead of giving game over text
-    - this only happens when the game is a TIE - things work if there is a winner
+add win tracker? (ie: Player 1: 5 wins | Player 2: 3 wins)
