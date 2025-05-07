@@ -1,3 +1,9 @@
+5/7/25:
+
+- Make alerts and finished display when cell is taken and/or game is finished
+- Add alerts and finished divs in html
+- Add notes in pseudocode about textContent displays
+
 5/6/25:
 
 - Remove placeholder gif and text
