@@ -1,5 +1,10 @@
 5/7/25:
 
+- Add submit buttons to username inputs
+- Fix newGame not removing gameAlert and finishedGame text
+- Add flex formatting to css code
+- Reformat html code for updated layout
+- Add text inputs for player usernames
 - Add step 6 to pseudocode
 - Add new game button functionality
 - Add new game button and styling
