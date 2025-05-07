@@ -1,5 +1,7 @@
 5/7/25:
 
+- Add new game button and styling
+- Move winner notification to alert box
 - Cells with value of 0 now show empty
 - Update player markers to X and O emojis
 - Increment winner's score by 1 when game ends
