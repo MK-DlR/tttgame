@@ -1,5 +1,8 @@
 5/7/25:
 
+- Add padding to html elements for better readability 
+- Add pseudocode notes of potential ideas
+- Change order of elements in html file for better flow
 - Adjust winner notification
 - Create winner h1 class
 - Step 5c complete
