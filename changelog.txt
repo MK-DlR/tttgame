@@ -1,5 +1,6 @@
 5/7/25:
 
+- Consolidate alert and finished classes
 - Add submit buttons to username inputs
 - Fix newGame not removing gameAlert and finishedGame text
 - Add flex formatting to css code

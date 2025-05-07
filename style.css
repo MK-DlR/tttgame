@@ -95,8 +95,8 @@ h2 {
 }
 
 /* game alert padding */ 
-.alerts,
-.finished {
+.alerts {
+    padding-top: 10px;
     padding-bottom: 10px;
 }
 

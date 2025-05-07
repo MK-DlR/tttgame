@@ -133,7 +133,7 @@ function GameController(
   const playRound = (row, column) => {
     // exit early if game is finished
     if (gameOver) {
-      const finishedGame = document.querySelector(".finished");
+      const finishedGame = document.querySelector(".alerts");
 
       // display game is over
       finishedGame.textContent =
@@ -235,7 +235,7 @@ function GameController(
     activePlayer = players[0];
     console.log("Game has been reset");
     const gameAlert = document.querySelector(".alerts");
-    const finishedGame = document.querySelector(".finished");
+    const finishedGame = document.querySelector(".alerts");
 
     // clear content
     gameAlert.textContent = "";
