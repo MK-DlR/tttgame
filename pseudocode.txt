@@ -58,3 +58,8 @@ https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-
 
 notes:
 remember to change player markers (1 + 2) to X and O (or emojis)
+change console.logs to textContent:
+    - The game is over. Start a new game to play again.
+    Done
+    - This cell is already taken. Try another one.
+    Done
