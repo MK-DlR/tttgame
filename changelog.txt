@@ -1,5 +1,8 @@
 5/7/25:
 
+- Step 5c complete
+- Add text notification of winner
+- Add check for if game board is full in event of a tie
 - Fix "cell taken" alert continuing to show when valid cell is chosen
 - Complete step 3, 4
 - Fix click event to take user input and place marker
