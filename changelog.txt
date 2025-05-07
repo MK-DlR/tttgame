@@ -1,5 +1,8 @@
 5/7/25:
 
+- Fix "cell taken" alert continuing to show when valid cell is chosen
+- Complete step 3, 4
+- Fix click event to take user input and place marker
 - Adjust displayController 
 - Move Cell inside of Gameboard
 - Make alerts and finished display when cell is taken and/or game is finished
