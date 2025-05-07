@@ -62,4 +62,6 @@ https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-
 
 notes:
 remember to change player markers (1 + 2) to X and O (or emojis)
+remember to add notification of winner (along w step 5) - Done
+remember to add game over when all available cells are taken - Done
 add win tracker? (ie: Player 1: 5 wins | Player 2: 3 wins)
