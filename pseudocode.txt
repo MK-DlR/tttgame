@@ -52,12 +52,12 @@ Done
     5a. to allow players to put in their names
         - if "submit" is pressed with no username put in
         - just use player 1/player 2
-    Wip
+    Done
     5b. include a button to start/restart game
     Done
     5c. add a display element that shows the results on game end
     Done
-Wip
+Done
 
 6. add project styling and final details
     6a. reduce width of container/gameplay area
