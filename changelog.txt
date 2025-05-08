@@ -1,5 +1,11 @@
 5/8/26:
 
+- Complete step 5
+- Add alert for tie game
+- Create init function to initialize game
+- Add event listeners to form submit buttons
+- Create functions to update turn and score displays with input usernames 
+- Create initializePlayerNames function to take username inputs
 - Organize various notes in pseudocode into step 6
 - Set max width of container and center align
 
