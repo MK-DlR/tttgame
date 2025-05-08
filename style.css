@@ -10,10 +10,26 @@ colors
 #494212 green brown
 */
 
+/* font */
+@font-face {
+    font-family:'Quicksand';
+    src: url('font/Quicksand-Regular.eot');
+	src: url('font/Quicksand-Regular.eot?#iefix') format('embedded-opentype'),
+		url('font/Quicksand-Regular.woff2') format('woff2'),
+		url('font/Quicksand-Regular.woff') format('woff'),
+		url('font/Quicksand-Regular.svg#Quicksand-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0020-02C6;
+}
+
 /* remove default margin and padding */
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Quicksand';
+
 }
 
 /* body style */ 

@@ -1,5 +1,6 @@
 5/8/26:
 
+- Add font
 - Apply color palette and remove unnecessary styling
 - Add transitional delay to cell hover
 - Fix player specific hover not working on turn 1
