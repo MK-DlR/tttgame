@@ -1,5 +1,15 @@
 /* style.css */
 
+/* 
+colors
+#A3A380 olive green
+#D7CE93 yellow green
+#EFEBCE off white
+#D8A48F peach pink
+#BB8588 deep pink
+#494212 green brown
+*/
+
 /* remove default margin and padding */
 * {
     margin: 0;
@@ -8,15 +18,14 @@
 
 /* body style */ 
 body {
-    background-color: lightblue; /* placeholder */
-    border: thick solid darkblue; /* placeholder to see where things are */
+    background-color: rgb(227, 235, 218); /* placeholder */
+    color: #494212;
 }
 
 /* container style */
 .container {
-    background-color: pink; /* placeholder */
+    background-color: rgb(227, 235, 218); /* placeholder */
     text-align: center;
-    border: thick solid red; /* placeholder to see where things are */
     max-width: 1500px;
     margin: auto;
 }
@@ -74,12 +83,12 @@ h2 {
     border: 1px solid black;
     gap: 2px;
     padding: 2px;
-    background-color: purple; /* placeholder */
+    background-color: #494212; /* placeholder */
 }
 
 /* board cell style */
 .cell {
-    background-color: white; /* placeholder */
+    background-color: #EFEBCE; /* placeholder */
     font-size: 3rem;
     cursor: pointer;
     transition-duration: 0.4s;
@@ -87,26 +96,26 @@ h2 {
 
 /* cell hover default color */
 .cell:hover {
-    background-color: lightgray; 
+    background-color: #D7CE93; 
 }
 
 /* player 1 hover color */
 .board.player1-turn .cell:hover:empty {
-    background-color: lightcoral; /* placeholder */
+    background-color: #A3A380; /* placeholder */
 }
 
 /* player 2 hover color */
 .board.player2-turn .cell:hover:empty {
-    background-color: lightblue; /* placeholder */
+    background-color: #BB8588; /* placeholder */
 }
 
 /* new game button */
 .button {
-    background-color: green; /*placeholder */
+    background-color: #D8A48F; /*placeholder */
     border: none;
     border-radius: 8px;
     width: 170px;
-    color: white; /*placeholder */
+    color: #494212; /*placeholder */
     padding: 15px;
     text-align: center;
     text-decoration: none;
@@ -119,9 +128,9 @@ h2 {
 }
 
 .button:hover {
-    background-color: white; /*placeholder */
-    color: green; /*placeholder */
-    border: 2px solid green; /*placeholder */
+    background-color: #EFEBCE; /*placeholder */
+    color: #D8A48F; /*placeholder */
+    border: 2px solid #D8A48F; /*placeholder */
 }
 
 /* game alert padding */ 
