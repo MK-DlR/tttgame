@@ -59,21 +59,26 @@ Done
     Done
 Wip
 
-6. add project styling
-
-resources:
-https://www.ayweb.dev/blog/building-a-house-from-the-inside-out
-https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-guide-8faa070abab5
-
-notes:
-remember to change player markers (1 + 2) to X and O (or emojis) - Done
-remember to add notification of winner (along w step 5) - Done
-remember to add game over when all available cells are taken - Done
-add win tracker (ie: Player 1: 5 wins | Player 2: 3 wins) - Done
-move winner notification to a pop up alert - Done
-reduce width of container/gameplay area - Done
+6. add project styling and final details
+    6a. reduce width of container/gameplay area
+    Done
+    6b. move winner notification to a pop up alert
+    Done
+    6c. add win tracker (ie: Player 1: 5 wins | Player 2: 3 wins)
+    Done
+    6d. change player markers (1 + 2) to X and O emojis
+    Done
+    6e. add winner alert notification
+    Done
+    6f. add game over when all available cells are taken
+    Done
+    6g. change hover color when cell is moused over
 
 IMPORTANT
 if player selects an already taken cell
 it still counts that as their move and switches to the other player
 fix this!!
+
+resources:
+https://www.ayweb.dev/blog/building-a-house-from-the-inside-out
+https://medium.com/@ryan_forrester_/two-dimensional-arrays-in-javascript-how-to-guide-8faa070abab5

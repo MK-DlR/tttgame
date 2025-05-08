@@ -1,5 +1,6 @@
 5/8/26:
 
+- Organize various notes in pseudocode into step 6
 - Set max width of container and center align
 
 5/7/25:
