@@ -137,6 +137,7 @@ function GameController() {
       playerOneForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const playerOneInput = document.getElementById("player1");
+        // trim whitespace from input
         if (playerOneInput && playerOneInput.value.trim() !== "") {
           players[0].name = playerOneInput.value.trim();
           updateScoreDisplay();
@@ -149,6 +150,7 @@ function GameController() {
       playerTwoForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const playerTwoInput = document.getElementById("player2");
+        // trim whitespace from input
         if (playerTwoInput && playerTwoInput.value.trim() !== "") {
           players[1].name = playerTwoInput.value.trim();
           updateScoreDisplay();
@@ -282,8 +284,10 @@ function GameController() {
       return;
     }
     // switch player turn
-    switchPlayerTurn();
-    printNewRound();
+    if (moveSuccessful) {
+      switchPlayerTurn();
+      printNewRound();
+    }
   };
 
   // reset game

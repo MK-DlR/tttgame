@@ -73,11 +73,8 @@ Done
     6f. add game over when all available cells are taken
     Done
     6g. change hover color when cell is moused over
-
-IMPORTANT
-if player selects an already taken cell
-it still counts that as their move and switches to the other player
-fix this!!
+    6h. fix player selecting already taken cell still counting as their move
+    Done
 
 resources:
 https://www.ayweb.dev/blog/building-a-house-from-the-inside-out
