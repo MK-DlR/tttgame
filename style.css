@@ -39,10 +39,15 @@ body {
     min-height: 300px;
 }
 
+input {
+    padding: 0 5px;
+}
+
 #player1,
 #player2 {
     margin-top: 5px;
     margin-bottom: 5px;
+    height: 25px;
 }
 
 /* game section with alert text */
