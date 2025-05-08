@@ -87,34 +87,91 @@ const Gameboard = (function () {
 })();
 
 // control the game turns and win conditions
-function GameController(
-  // set players
-  playerOneName = "Player One", // change to let user input name
-  playerTwoName = "Player Two" // change to let user input name
-) {
+function GameController() {
   const board = Gameboard;
 
   // allow gameplay
   let gameOver = false;
 
+  // Set default player names
+  let playerOneName = "Player 1";
+  let playerTwoName = "Player 2";
+
   // player names and markers
   const players = [
     {
       name: playerOneName,
-      marker: 1, // change to X/O/emoji
+      marker: 1,
       score: 0,
     },
     {
       name: playerTwoName,
-      marker: 2, // change to X/O/emoji
+      marker: 2,
       score: 0,
     },
   ];
 
-  // player scores
-  const trackWins = document.querySelector(".tracker");
-  trackWins.innerHTML = `<h3>Player Scores</h3><br>
-  <b>${players[0].name}:</b> ${players[0].score} | <b>${players[1].name}:</b> ${players[1].score}`;
+  // get initial player names if provided in the input fields
+  function initializePlayerNames() {
+    const playerOneInput = document.getElementById("player1");
+    const playerTwoInput = document.getElementById("player2");
+
+    if (playerOneInput && playerOneInput.value.trim() !== "") {
+      players[0].name = playerOneInput.value.trim();
+    }
+
+    if (playerTwoInput && playerTwoInput.value.trim() !== "") {
+      players[1].name = playerTwoInput.value.trim();
+    }
+
+    // update score display with current names
+    updateScoreDisplay();
+  }
+
+  // add event listeners to player name forms
+  function setupPlayerNameForms() {
+    const playerOneForm = document.getElementById("p1");
+    const playerTwoForm = document.getElementById("p2");
+
+    if (playerOneForm) {
+      playerOneForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const playerOneInput = document.getElementById("player1");
+        if (playerOneInput && playerOneInput.value.trim() !== "") {
+          players[0].name = playerOneInput.value.trim();
+          updateScoreDisplay();
+          updatePlayerTurn();
+        }
+      });
+    }
+
+    if (playerTwoForm) {
+      playerTwoForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const playerTwoInput = document.getElementById("player2");
+        if (playerTwoInput && playerTwoInput.value.trim() !== "") {
+          players[1].name = playerTwoInput.value.trim();
+          updateScoreDisplay();
+          updatePlayerTurn();
+        }
+      });
+    }
+  }
+
+  // update score display with current player names
+  function updateScoreDisplay() {
+    const trackWins = document.querySelector(".tracker");
+    trackWins.innerHTML = `<h3>Player Scores</h3><br>
+    <b>${players[0].name}:</b> ${players[0].score} | <b>${players[1].name}:</b> ${players[1].score}`;
+  }
+
+  // update player turn display
+  function updatePlayerTurn() {
+    const playerTurnDiv = document.querySelector(".turn");
+    if (playerTurnDiv) {
+      playerTurnDiv.textContent = `${getActivePlayer().name}'s turn...`;
+    }
+  }
 
   let activePlayer = players[0];
 
@@ -127,6 +184,7 @@ function GameController(
   const printNewRound = () => {
     board.printBoard();
     console.log(`${getActivePlayer().name}'s turn.`);
+    updatePlayerTurn();
   };
 
   // handles each round and marker placing
@@ -205,8 +263,7 @@ function GameController(
       players[winner - 1].score++;
       // alert winner
       alert(`🎉 ${players[winner - 1].name} wins! 🎉`);
-      trackWins.innerHTML = `<h3>Player Scores</h3><br>
-      <b>${players[0].name}:</b> ${players[0].score} | <b>${players[1].name}:</b> ${players[1].score}`;
+      updateScoreDisplay();
       console.table(players);
       // end gameplay after win
       gameOver = true;
@@ -220,6 +277,7 @@ function GameController(
 
     if (isBoardFull) {
       console.log("Board is full.");
+      alert("It's a draw!");
       gameOver = true;
       return;
     }
@@ -230,25 +288,35 @@ function GameController(
 
   // reset game
   function resetGameboard() {
-    Gameboard.resetBoard();
+    board.resetBoard();
     gameOver = false;
     activePlayer = players[0];
     console.log("Game has been reset");
     const gameAlert = document.querySelector(".alerts");
-    const finishedGame = document.querySelector(".alerts");
 
     // clear content
     gameAlert.textContent = "";
-    finishedGame.textContent = "";
 
     displayController.updateDisplay();
+    updatePlayerTurn();
   }
 
-  const newGame = document.querySelector(".button");
-  newGame.addEventListener("click", resetGameboard);
+  // initialize the game
+  function init() {
+    initializePlayerNames();
+    setupPlayerNameForms();
 
-  // initial play game message
-  printNewRound();
+    const newGame = document.querySelector(".button");
+    if (newGame) {
+      newGame.addEventListener("click", resetGameboard);
+    }
+
+    // initial play game message
+    printNewRound();
+  }
+
+  // call init function when creating the game controller
+  init();
 
   return {
     playRound,
@@ -313,7 +381,7 @@ const displayController = (function () {
   updateDisplay();
 
   return {
-    updateDisplay, // Expose updateDisplay so it can be called after resetting
+    updateDisplay, // expose updateDisplay so it can be called after resetting
   };
 })();
 
@@ -339,5 +407,7 @@ function testMove() {
   game.playRound(1, 1);
 }
 
-// how to reset game:
-// game.resetGameboard();
+// test reset function
+function manualReset() {
+  game.resetGameboard();
+}
