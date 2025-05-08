@@ -1,5 +1,6 @@
 5/8/26:
 
+- Fix player specific hover not working on turn 1
 - Add player specific hover color functionality for cells
 - Fix player selecting occupied cell as counting as their turn
 - Complete step 5

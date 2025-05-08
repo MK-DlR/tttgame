@@ -316,6 +316,11 @@ function GameController() {
     initializePlayerNames();
     setupPlayerNameForms();
 
+    const boardDiv = document.querySelector(".board");
+    boardDiv.classList.add(
+      activePlayer === players[0] ? "player1-turn" : "player2-turn"
+    );
+
     const newGame = document.querySelector(".button");
     if (newGame) {
       newGame.addEventListener("click", resetGameboard);

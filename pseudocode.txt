@@ -73,6 +73,8 @@ Done
     6f. add game over when all available cells are taken
     Done
     6g. change hover color when cell is moused over
+        - make sure it works on the first turn as well
+    Done
     6h. fix player selecting already taken cell still counting as their move
     Done
 
