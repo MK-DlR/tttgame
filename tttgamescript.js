@@ -180,6 +180,12 @@ function GameController() {
   // switch players between turns
   const switchPlayerTurn = () => {
     activePlayer = activePlayer === players[0] ? players[1] : players[0];
+    // allow for individual cell hover colors
+    const boardDiv = document.querySelector(".board");
+    boardDiv.classList.remove("player1-turn", "player2-turn");
+    boardDiv.classList.add(
+      activePlayer === players[0] ? "player1-turn" : "player2-turn"
+    );
   };
   const getActivePlayer = () => activePlayer;
 
