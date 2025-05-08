@@ -71,7 +71,7 @@ remember to add notification of winner (along w step 5) - Done
 remember to add game over when all available cells are taken - Done
 add win tracker (ie: Player 1: 5 wins | Player 2: 3 wins) - Done
 move winner notification to a pop up alert - Done
-reduce width of container/gameplay area?
+reduce width of container/gameplay area - Done
 
 IMPORTANT
 if player selects an already taken cell

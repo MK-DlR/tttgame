@@ -17,6 +17,8 @@ body {
     background-color: pink; /* placeholder */
     text-align: center;
     border: thick solid red; /* placeholder to see where things are */
+    max-width: 1500px;
+    margin: auto;
 }
 
 /* game layout style */

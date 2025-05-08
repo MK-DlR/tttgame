@@ -1,3 +1,7 @@
+5/8/26:
+
+- Set max width of container and center align
+
 5/7/25:
 
 - Consolidate alert and finished classes
